@@ -61,7 +61,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     const Spacer(),
                     const SizedBox(height: 20),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const Dashboard()));
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.blueAccent,
                         fixedSize: const Size(250.0, 40.0),
@@ -73,10 +76,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     ),
                     const SizedBox(height: 8),
                     ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const Dashboard()));
-                      },
+                      onPressed: () {},
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.redAccent,
                         fixedSize: const Size(250.0, 40.0),
