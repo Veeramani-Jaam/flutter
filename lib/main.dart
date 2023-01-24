@@ -1,4 +1,5 @@
 import 'package:demoproject/dashboard.dart';
+import 'package:demoproject/login.dart';
 import 'package:demoproject/page1.dart';
 import 'package:flutter/material.dart';
 
@@ -37,18 +38,18 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               controller: _controller,
               children: const [
                 Page1(
-                  "Earn for every Referal ",
+                  "BOOK AND GET STARTED!",
                   "images/d1.jpg",
                   Colors.amberAccent,
                 ),
                 Page1(
-                  "Send Money Fast",
-                  "images/d1.jpg",
+                  "CHOOSE YOU DRIVEN TYPE",
+                  "images/d2.jpg",
                   Colors.amberAccent,
                 ),
                 Page1(
-                  "Over 50 Countries",
-                  "images/d1.jpg",
+                  "CHOOSE WHAT CAR YOU NEEDS",
+                  "images/d3.jpg",
                   Colors.amberAccent,
                 ),
               ],
@@ -63,7 +64,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     ElevatedButton(
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const Dashboard()));
+                            builder: (context) => const Login()));
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.blueAccent,

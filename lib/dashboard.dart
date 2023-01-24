@@ -7,50 +7,95 @@ class Dashboard extends StatefulWidget {
   State<Dashboard> createState() => _DashboardState();
 }
 
-class _DashboardState extends State<Dashboard> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+Card makeDashboardItem(String title, IconData icon) {
+  return Card(
+      elevation: 1.0,
+      margin: const EdgeInsets.all(8.0),
+      child: Container(
+        decoration:
+            const BoxDecoration(color: Color.fromRGBO(220, 220, 220, 1.0)),
+        child: InkWell(
+          onTap: () {},
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.min,
+            verticalDirection: VerticalDirection.down,
+            children: <Widget>[
+              const SizedBox(height: 50.0),
+              Center(
+                  child: Icon(
+                icon,
+                size: 40.0,
+                color: Colors.black,
+              )),
+              const SizedBox(height: 20.0),
+              Center(
+                child: Text(title,
+                    style:
+                        const TextStyle(fontSize: 18.0, color: Colors.black)),
+              )
+            ],
+          ),
+        ),
+      ));
+}
 
+class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          const Center(
-            child: Icon(
-              Icons.car_rental,
-              size: 150,
-              color: Colors.green,
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 20),
-            child: TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: 'Username',
+    Card makeDashboardItem(String title, IconData icon) {
+      return Card(
+          elevation: 1.0,
+          margin: const EdgeInsets.all(8.0),
+          child: Container(
+            decoration:
+                const BoxDecoration(color: Color.fromRGBO(220, 220, 220, 1.0)),
+            child: InkWell(
+              onTap: () {},
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisSize: MainAxisSize.min,
+                verticalDirection: VerticalDirection.down,
+                children: <Widget>[
+                  const SizedBox(height: 50.0),
+                  Center(
+                      child: Icon(
+                    icon,
+                    size: 40.0,
+                    color: Colors.black,
+                  )),
+                  const SizedBox(height: 20.0),
+                  Center(
+                    child: Text(title,
+                        style: const TextStyle(
+                            fontSize: 18.0, color: Colors.black)),
+                  )
+                ],
               ),
             ),
-          ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            child: TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: 'Password',
-              ),
-            ),
-          ),
-          const SizedBox(height: 30),
-          Center(
-            child: ElevatedButton(
-              onPressed: () {},
-              child: const Text('Login'),
-            ),
-          )
-        ],
+          ));
+    }
+
+    return SafeArea(
+        child: Scaffold(
+      appBar: AppBar(
+        title: const Text("Car Rental"),
+        elevation: .1,
+        backgroundColor: Colors.amberAccent,
       ),
-    );
+      body: Container(
+        padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 2.0),
+        child: GridView.count(
+          crossAxisCount: 2,
+          padding: const EdgeInsets.all(3.0),
+          children: <Widget>[
+            makeDashboardItem("Available", Icons.car_rental),
+            makeDashboardItem("Rental", Icons.car_rental),
+            makeDashboardItem("Payment", Icons.money),
+            makeDashboardItem("Category", Icons.menu)
+          ],
+        ),
+      ),
+    ));
   }
 }
